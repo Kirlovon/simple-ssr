@@ -1,0 +1,25 @@
+{
+	"name": "simple-ssr",
+	"version": "0.0.1",
+	"description": "Universal server side rendering for Node.js",
+	"main": "index.js",
+	"author": "Kirlovon",
+	"license": "MIT",
+	"files": [
+		"lib/",
+		"index.js",
+		"LICENSE"
+	],
+	"repository": "https://github.com/Kirlovon/Simple-SSR.git",
+	"homepage": "https://github.com/Kirlovon/Simple-SSR",
+	"dependencies": {
+		"chalk": "^2.4.1",
+		"puppeteer": "^1.4.0"
+	},
+	"devDependencies": {
+		"eslint": "^4.19.1"
+	},
+	"scripts": {
+		"lint": "eslint ./"
+	}
+}
