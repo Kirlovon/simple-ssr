@@ -8,13 +8,18 @@
  */
 
 'use strict';
+
+/** Main dependency */
 const main = require('./lib/main');
 
 module.exports = class {
 
 	/**
 	 * Start Puppeteer and prepare SSR for work.
-	 * @param {object} [config] - Config for puppeteer.launch()
+	 * 
+	 * @static
+	 * @method start
+	 * @param {object} [config] Config for puppeteer.launch()
 	 * @returns {Promise}
 	 */
 	static start(config) {
@@ -23,8 +28,11 @@ module.exports = class {
 
 	/**
 	 * Render specified URL.
-	 * @param {string} url - Render page URL
-	 * @param {object} [config] - Rendering config
+	 * 
+	 * @static
+	 * @method render
+	 * @param {string} url Render page URL
+	 * @param {object} [config] Rendering config
 	 * @returns {Promise}
 	 */
 	static render(url, config) {
@@ -33,6 +41,9 @@ module.exports = class {
 
 	/**
 	 * Stop Puppeteer.
+	 * 
+	 * @static
+	 * @method stop
 	 * @returns {Promise}
 	 */
 	static stop() {
