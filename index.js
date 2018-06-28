@@ -4,7 +4,7 @@
  * @module simple-ssr
  * @author Kirlovon
  * @license MIT
- * @version 0.5.0
+ * @version 0.6.0
  */
 
 'use strict';
@@ -114,26 +114,30 @@ module.exports = class {
 
 			/**
 			 * Allows to change logs state.
+			 * @method other.setLogs()
 			 * @param {boolean} state Enable or Disable default logs
 			 */
-			set logs(state) {
-				main.logsState(state);
+			setLogs(state) {
+				main.setLogsState(state);
 			},
 
 			/**
 			 * Allows to get logs state.
+			 * @method other.getLogs()
 			 * @returns {boolean} Logs state
 			 */
-			get logs() {
-				return main.logsState;
+
+			getLogs() {
+				return main.getLogsState();
 			},
 
 			/**
 			 * Allows to access puppeteer browser.
+			 * @method other.browser()
 			 * @returns Puppeteer browser
 			 */
-			get browser() {
-				return main.puppeteerBrowser;
+			browser() {
+				return main.puppeteerBrowser();
 			}
 
 		};
