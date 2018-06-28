@@ -87,7 +87,7 @@ module.exports = class {
 
 			/**
 			 * Delete from memory outdated cache.
-			 * @method manuallyCleanCache()
+			 * @method cache.clean()
 			 */
 			clean() {
 				main.manuallyCleanCache();
