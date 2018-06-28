@@ -32,7 +32,7 @@ module.exports = class {
 	 * @static
 	 * @method render
 	 * @param {string} url Render page URL
-	 * @param {object} [config] Rendering config
+	 * @param {{timeout: number, domTarget: string, waitUntil: string|Array<string>, cache: boolean, cacheTime: number}} [config] Rendering config
 	 * @returns {Promise}
 	 */
 	static render(url, config) {
