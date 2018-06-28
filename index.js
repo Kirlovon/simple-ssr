@@ -4,7 +4,7 @@
  * @module simple-ssr
  * @author Kirlovon
  * @license MIT
- * @version 0.0.1
+ * @version 0.1.5
  */
 
 'use strict';
@@ -18,7 +18,7 @@ module.exports = class {
 	 * Start Puppeteer and prepare SSR for work.
 	 * 
 	 * @static
-	 * @method start
+	 * @method start()
 	 * @param {object} [config] Config for puppeteer.launch()
 	 * @returns {Promise}
 	 */
@@ -30,7 +30,7 @@ module.exports = class {
 	 * Render specified URL.
 	 * 
 	 * @static
-	 * @method render
+	 * @method render()
 	 * @param {string} url Render page URL
 	 * @param {{timeout: number, domTarget: string, waitUntil: string|Array<string>, cache: boolean, cacheTime: number}} [config] Rendering config
 	 * @returns {Promise}
@@ -43,7 +43,7 @@ module.exports = class {
 	 * Stop Puppeteer.
 	 * 
 	 * @static
-	 * @method stop
+	 * @method stop()
 	 * @returns {Promise}
 	 */
 	static stop() {
