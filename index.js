@@ -126,7 +126,6 @@ module.exports = class {
 			 * @method other.getLogs()
 			 * @returns {boolean} Logs state
 			 */
-
 			getLogs() {
 				return main.getLogsState();
 			},
