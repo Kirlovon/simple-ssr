@@ -12,7 +12,7 @@ test('puppeteerConfig verifier got invalid data type', done => {
 		ignoreHTTPSErrors: true,
 	});
 	done();
-});
+}, 10000);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -28,7 +28,7 @@ test('puppeteerConfig verifier got valid data type', done => {
 		ignoreHTTPSErrors: false,
 	});
 	done();
-});
+}, 10000);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -40,7 +40,7 @@ test('puppeteerConfig verifier not received data', done => {
 		ignoreHTTPSErrors: true,
 	});
 	done();
-});
+}, 10000);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -48,7 +48,7 @@ test('renderURL verifier got invalid data type', done => {
 	let data = dataVerification.renderURL(12345);
 	expect(data).toBe(undefined);
 	done();
-});
+}, 10000);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -56,7 +56,7 @@ test('renderURL verifier got valid data type', done => {
 	let data = dataVerification.renderURL("https://github.com/");
 	expect(data).toBe("https://github.com/");
 	done();
-});
+}, 10000);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -64,7 +64,7 @@ test('renderURL verifier not received data', done => {
 	let data = dataVerification.renderURL();
 	expect(data).toBe(undefined);
 	done();
-});
+}, 10000);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -78,7 +78,7 @@ test('renderConfig verifier got invalid data type', done => {
 		cacheTime: 30000
 	});
 	done();
-});
+}, 10000);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -98,7 +98,7 @@ test('renderConfig verifier got valid data type', done => {
 		cacheTime: 6000
 	});
 	done();
-});
+}, 10000);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -112,6 +112,6 @@ test('renderConfig verifier got not received data', done => {
 		cacheTime: 30000
 	});
 	done();
-});
+}, 10000);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
