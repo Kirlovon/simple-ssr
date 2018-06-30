@@ -1,12 +1,12 @@
 /* eslint-disable */
 
-const simpleSSR = require('../index');
+const simpleSSR = require('../lib/main');
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 test('Try to render "example.com"', done => {
-	
-	simpleSSR.other.setLogs(false);
+
+	simpleSSR.logs = false;
 
 	simpleSSR.start().then(() => {
 		simpleSSR.render('http://example.com/').then((data) => {
@@ -26,7 +26,7 @@ test('Try to render "example.com"', done => {
 
 test('Try to render "example.com" and cache it', done => {
 
-	simpleSSR.other.setLogs(false);
+	simpleSSR.logs = false;
 
 	simpleSSR.start().then(() => {
 		simpleSSR.render('http://example.com/', {
