@@ -61,3 +61,42 @@ test('Try to render "example.com" and cache it', done => {
 }, 60000);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+test('Try to render without url', done => {
+
+	simpleSSR.logs = false;
+
+	simpleSSR.start().then(() => {
+		simpleSSR.render().then(() => {
+			done.fail('No URL error!');
+		}).catch(error => {
+
+			expect(error instanceof Error).toBeTruthy();
+
+			simpleSSR.stop().then(() => {
+				done();
+			});
+			
+		});
+	});
+
+}, 60000);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+test('Try to render without starting Puppeteer', done => {
+
+	simpleSSR.logs = false;
+
+	simpleSSR.render('http://example.com/').then(() => {
+		done.fail('No Puppeteer error!');
+	}).catch(error => {
+
+		expect(error.message).toBe('Puppeteer is not started!');
+		done();
+
+	});
+
+}, 60000);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
