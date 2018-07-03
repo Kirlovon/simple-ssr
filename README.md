@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="https://raw.githubusercontent.com/Kirlovon/Simple-SSR/master/logo/Logo.svg" width="256" height="192">
+	<img src="https://cdn.rawgit.com/Kirlovon/Simple-SSR/master/logo/Logo.svg" width="256" height="192">
 </p>
 
 <p align="center">
