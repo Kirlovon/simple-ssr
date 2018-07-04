@@ -4,7 +4,7 @@
  * @module simple-ssr
  * @author Kirlovon
  * @license MIT
- * @version 0.7.5
+ * @version 0.7.8
  */
 
 'use strict';

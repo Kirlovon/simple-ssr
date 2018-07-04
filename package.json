@@ -1,6 +1,6 @@
 {
 	"name": "simple-ssr",
-	"version": "0.7.5",
+	"version": "0.7.8",
 	"description": "Universal server side rendering implementation for Node.js",
 	"main": "index.js",
 	"author": "Kirlovon",
