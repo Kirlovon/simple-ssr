@@ -71,7 +71,7 @@ test('Try to render without url', done => {
 			done.fail('No URL error!');
 		}).catch(error => {
 
-			expect(error instanceof Error).toBeTruthy();
+			expect(error.message).toBe('URL for rendering is not specified!');
 
 			simpleSSR.stop().then(() => {
 				done();
