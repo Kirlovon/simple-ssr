@@ -9,3 +9,20 @@
 </p>
 
 Universal server side rendering implementation for Node.js. Powered by [Puppeteer](https://github.com/GoogleChrome/puppeteer).
+
+## Example
+
+```javascript
+const express = require('express');
+const simpleSSR = require('simple-ssr');
+const app = express();
+
+app.get('/', async (req, res) => {
+	let rendered = await simpleSSR.render('http://example.com/');
+	res.send(rendered.html);
+});
+
+simpleSSR.start().then(() => {
+	app.listen(3000);
+});
+```
