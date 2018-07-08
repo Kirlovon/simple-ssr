@@ -76,7 +76,7 @@ test('Try to render without url', done => {
 			simpleSSR.stop().then(() => {
 				done();
 			});
-			
+
 		});
 	});
 
@@ -88,13 +88,9 @@ test('Try to render without starting Puppeteer', done => {
 
 	simpleSSR.logs = false;
 
-	simpleSSR.render('http://example.com/').then(() => {
-		done.fail('No Puppeteer error!');
-	}).catch(error => {
-
-		expect(error.message).toBe('Puppeteer is not started!');
+	simpleSSR.render('http://example.com/').then(data => {
+		expect(data.html).toContain('Example Domain');
 		done();
-
 	});
 
 }, 60000);
