@@ -84,13 +84,39 @@ test('Try to render without url', done => {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-test('Try to render without starting Puppeteer', done => {
+test('Try to render without starting browser', done => {
 
 	simpleSSR.logs = false;
 
 	simpleSSR.render('http://example.com/').then(data => {
 		expect(data.html).toContain('Example Domain');
-		done();
+
+		simpleSSR.stop().then(() => {
+			done();
+		});
+	});
+
+}, 60000);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+test('Try to start browser twice', done => {
+
+	simpleSSR.logs = false;
+
+	simpleSSR.start().then(() => {
+
+		simpleSSR.start().then(() => {
+			done.fail('No browser error!');
+		}).catch(error => {
+
+			expect(error.message).toBe('Browser has already been launched before!');
+
+			simpleSSR.stop().then(() => {
+				done();
+			});
+
+		});
 	});
 
 }, 60000);
