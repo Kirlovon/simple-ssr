@@ -10,6 +10,14 @@
 
 Universal server side rendering implementation for Node.js. Powered by [Puppeteer](https://github.com/GoogleChrome/puppeteer).
 
+## Installation
+
+Installation from the GitHub repository:
+```
+npm install Kirlovon/Simple-SSR --save
+```
+*Note: The minimum supported Node version is **Node 7.x***
+
 ## Example
 
 ```javascript
