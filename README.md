@@ -8,7 +8,17 @@
 	<a href="https://github.com/Kirlovon/Simple-SSR/commits/master"><img src="https://img.shields.io/github/last-commit/Kirlovon/Simple-SSR.svg" alt="Last commit"></a>
 </p>
 
-Universal server side rendering implementation for Node.js. Powered by [Puppeteer](https://github.com/GoogleChrome/puppeteer).
+## What is it?
+Universal server-side rendering implementation for Node.js. Powered by [Puppeteer](https://github.com/GoogleChrome/puppeteer). <br>
+This library allows you to preload your web applications directly on the server, and send the user rendered data. <br>
+
+*Note: The minimum supported Node version is **Node 7.x***
+
+## Features
+◾ Simplifies crawlers work with your **Single Page Applications** or **Progressive Web Apps**.<br>
+◾ Preload your web applications on the server side. <br>
+◾ Allows you to cache data, optimizing the server-side rendering process. <br>
+◾ In some cases improves performance and loading speed of your web app. <br>
 
 ## Installation
 
@@ -16,7 +26,6 @@ Installation from the GitHub repository:
 ```
 npm install Kirlovon/Simple-SSR --save
 ```
-*Note: The minimum supported Node version is **Node 7.x***
 
 ## Example
 
