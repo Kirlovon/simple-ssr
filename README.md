@@ -3,6 +3,7 @@
 </p>
 
 <p align="center">
+	<a href="https://ci.appveyor.com/project/Kirlovon/simple-ssr"><img src="https://ci.appveyor.com/api/projects/status/fkm8h7gbncv0fj28/branch/master?svg=true" alt="AppVeyor"></a>
 	<a href="https://github.com/Kirlovon/Simple-SSR/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Kirlovon/Simple-SSR.svg" alt="License"></a>
 	<a href="https://github.com/Kirlovon/Simple-SSR/blob/master/package.json"><img src="https://img.shields.io/github/package-json/v/Kirlovon/Simple-SSR.svg" alt="Package version"></a>
 	<a href="https://github.com/Kirlovon/Simple-SSR/commits/master"><img src="https://img.shields.io/github/last-commit/Kirlovon/Simple-SSR.svg" alt="Last commit"></a>

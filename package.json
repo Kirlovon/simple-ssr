@@ -1,7 +1,7 @@
 {
 	"name": "simple-ssr",
-	"version": "0.8.8",
-	"description": "Universal server side rendering implementation for Node.js",
+	"version": "1.0.0",
+	"description": "Universal server-side rendering implementation for Node.js",
 	"main": "index.js",
 	"author": "Kirlovon",
 	"license": "MIT",
@@ -9,6 +9,13 @@
 		"lib/",
 		"index.js",
 		"LICENSE"
+	],
+	"keywords": [
+		"ssr",
+		"pwa",
+		"spa",
+		"server-size-rendering",
+		"puppeteer"
 	],
 	"repository": "https://github.com/Kirlovon/Simple-SSR.git",
 	"homepage": "https://github.com/Kirlovon/Simple-SSR",
