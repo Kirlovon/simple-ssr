@@ -16,10 +16,10 @@ This library allows you to preload your web applications on the server side, and
 *Note: The minimum supported Node version is **Node 7.x***
 
 ## Features
-◾ Simplifies crawlers work with your **Single Page Applications** or **Progressive Web Apps**.<br>
-◾ Preload your web applications on the server-side. <br>
-◾ Allows you to cache data, optimizing the server-side rendering process. <br>
-◾ In some cases improves performance and loading speed of your web app. <br>
+* Simplifies crawlers work with your **Single Page Applications** or **Progressive Web Apps**.<br>
+* Preload your web applications on the server-side. <br>
+* Allows you to cache data, optimizing the server-side rendering process. <br>
+* In some cases improves performance and loading speed of your web app. <br>
 
 ## Installation
 
