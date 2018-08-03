@@ -1,124 +1,84 @@
 /* eslint-disable */
 
 const simpleSSR = require('../lib/main');
+const assert = require('chai').assert;
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+describe('main', () => {
 
-test('Try to render "example.com"', done => {
+	beforeEach(done => {
+		simpleSSR.logs = false;
+		(async () => {
+			await simpleSSR.start();
+			done();
+		})();
+	}, 60000);
 
-	simpleSSR.logs = false;
+	afterEach(done => {
+		(async () => {
+			await simpleSSR.stop();
+			done();
+		})();
+	}, 60000);
 
-	simpleSSR.start().then(() => {
-		simpleSSR.render('http://example.com/').then((data) => {
+	it('Try to render "example.com"', done => {
+		(async () => {
+			let data = await simpleSSR.render('http://example.com/');
+			assert.include(data.html, 'Example Domain');
+			assert.equal(data.cached, false);
+			done();
+		})();
+	}).timeout(60000);
 
-			expect(data.html).toContain('Example Domain');
+	it('Try to render "example.com and cache it"', done => {
+		(async () => {
 
-			simpleSSR.stop().then(() => {
-				done();
+			await simpleSSR.render('http://example.com/', {
+				cache: true,
+				cacheTime: 10000,
 			});
 
-		});
-	});
+			let cacheReadingStart = Date.now();
+			let data = await simpleSSR.render('http://example.com/', {
+				cache: true,
+			});
+			let cacheReadingTime = Date.now() - cacheReadingStart;
 
-}, 60000);
+			assert.isBelow(cacheReadingTime, 100, "Cache reading should be fast");
+			assert.include(data.html, 'Example Domain');
+			done();
+		})();
+	}).timeout(60000);
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+	it('Try to render "example.com" without starting SimpleSSR', done => {
+		simpleSSR.stop().then(async () => {
 
-test('Try to render "example.com" and cache it', done => {
-
-	simpleSSR.logs = false;
-
-	simpleSSR.start().then(() => {
-		simpleSSR.render('http://example.com/', {
-			cache: true,
-			cacheTime: 0
-		}).then((data) => {
-
-			expect(data.html).toContain('Example Domain');
-			expect(data.cached).toEqual(false);
-
-			setTimeout(() => {
-
-				simpleSSR.render('http://example.com/', {
-					cache: true,
-					cacheTime: 0
-				}).then((data) => {
-
-					expect(data.html).toContain('Example Domain');
-					expect(data.cached).toEqual(true);
-
-					simpleSSR.stop().then(() => {
-						done();
-					});
-
-				});
-
-			}, 100);
+			let data = await simpleSSR.render('http://example.com/');
+			assert.include(data.html, 'Example Domain');
+			done();
 
 		});
-	});
+	}).timeout(60000);
 
-}, 60000);
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-test('Try to render without url', done => {
-
-	simpleSSR.logs = false;
-
-	simpleSSR.start().then(() => {
-		simpleSSR.render().then(() => {
-			done.fail('No URL error!');
+	it('Try to start SimpleSSR twice', done => {
+		simpleSSR.start().then(() => {
+			assert.fail('No errors!');
+			done();
 		}).catch(error => {
-
-			expect(error.message).toBe('URL for rendering is not specified!');
-
-			simpleSSR.stop().then(() => {
-				done();
-			});
-
-		});
-	});
-
-}, 60000);
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-test('Try to render without starting browser', done => {
-
-	simpleSSR.logs = false;
-
-	simpleSSR.render('http://example.com/').then(data => {
-		expect(data.html).toContain('Example Domain');
-
-		simpleSSR.stop().then(() => {
+			assert.exists(error);
+			assert.equal(error.message, "SimpleSSR has already been launched before!");
 			done();
 		});
-	});
+	}).timeout(60000);
 
-}, 60000);
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-test('Try to start browser twice', done => {
-
-	simpleSSR.logs = false;
-
-	simpleSSR.start().then(() => {
-
-		simpleSSR.start().then(() => {
-			done.fail('No browser error!');
+	it('Try to render without link', done => {
+		simpleSSR.render().then(() => {
+			assert.fail('No errors!');
+			done();
 		}).catch(error => {
-
-			expect(error.message).toBe('Browser has already been launched before!');
-
-			simpleSSR.stop().then(() => {
-				done();
-			});
-
+			assert.exists(error);
+			assert.equal(error.message, "URL for rendering is not specified!");
+			done();
 		});
-	});
+	}).timeout(60000);
 
-}, 60000);
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
+});
