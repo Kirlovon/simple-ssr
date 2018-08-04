@@ -1,7 +1,8 @@
 /* eslint-disable */
 
-const cacheManager = require('../lib/cacheManager');
 const assert = require('chai').assert;
+const source = require('../lib/cacheManager');
+const cacheManager = new source();
 const cache = cacheManager.cache;
 
 describe('cacheManager', () => {
