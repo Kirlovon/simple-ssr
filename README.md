@@ -28,8 +28,11 @@ Installation from the GitHub repository:
 npm install Kirlovon/Simple-SSR --save
 ```
 
-## Example
+## Usage
 
+### [API Documentation](https://github.com/Kirlovon/Simple-SSR/blob/master/API.md)
+
+### Example
 ```javascript
 const express = require('express');
 const simpleSSR = require('simple-ssr');

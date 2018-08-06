@@ -1,7 +1,7 @@
 /* eslint-disable */
 
-const dataVerification = require('../lib/dataVerification');
 const assert = require('chai').assert;
+const dataVerification = require('../lib/dataVerification');
 
 describe('dataVerification', () => {
 
