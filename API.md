@@ -183,7 +183,7 @@ simpleSSR.safe = false; // Disable safe mod
 ---------------------------------------------------------------
 ### simpleSSR.browser
 ---------------------------------------------------------------
-In this parameter there is a return from [puppeteer.launch()](https://github.com/GoogleChrome/puppeteer/blob/v1.6.2/docs/api.md#puppeteerlaunchoptions).
+In this parameter there is a return from [puppeteer.launch()](https://github.com/GoogleChrome/puppeteer/blob/v1.6.1/docs/api.md#puppeteerlaunchoptions).
 
 ##### Example
 ```javascript
@@ -203,7 +203,7 @@ const puppeteerBrowser = simpleSSR.browser;
 ### simpleSSR.blockedRequests
 ---------------------------------------------------------------
 Blocked requests list. Allows you to block loading of unnecessary resources, such as images, sounds, styles, etc. 
-More information [here](https://github.com/GoogleChrome/puppeteer/blob/v1.6.2/docs/api.md#requestresourcetype).
+More information [here](https://github.com/GoogleChrome/puppeteer/blob/v1.6.1/docs/api.md#requestresourcetype).
 
 _Default: `['stylesheet', 'image', 'media', 'font', 'manifest']`_
 
