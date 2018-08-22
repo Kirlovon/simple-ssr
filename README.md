@@ -23,9 +23,9 @@ This library allows you to preload your web applications on the server side, and
 
 ## Installation
 
-Installation from the GitHub repository:
+Installation from the NPM repository:
 ```
-npm install Kirlovon/Simple-SSR --save
+npm install simple-ssr --save
 ```
 
 ## Usage
