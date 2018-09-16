@@ -3,7 +3,9 @@
 const assert = require('chai').assert;
 const dataVerification = require('../lib/dataVerification');
 
-describe('dataVerification', () => {
+describe('dataVerification', function () {
+
+	this.timeout(10000);
 
 	it('Check default config from puppeteerConfig()', done => {
 		var config = dataVerification.puppeteerConfig('something');
@@ -13,7 +15,7 @@ describe('dataVerification', () => {
 			ignoreHTTPSErrors: true,
 		});
 		done();
-	}).timeout(5000);
+	});
 
 	it('Check default config from renderURL()', done => {
 		var test1 = dataVerification.renderURL('something');
@@ -21,7 +23,7 @@ describe('dataVerification', () => {
 		assert.equal(test1, 'something');
 		assert.isUndefined(test2);
 		done();
-	}).timeout(5000);
+	});
 
 	it('Check default config from renderConfig()', done => {
 		var config = dataVerification.renderConfig('something');
@@ -33,7 +35,7 @@ describe('dataVerification', () => {
 			cacheTime: 30000,
 		});
 		done();
-	}).timeout(5000);
+	});
 
 	it('Check config corrector from renderConfig()', done => {
 		var config = dataVerification.renderConfig({
@@ -51,7 +53,7 @@ describe('dataVerification', () => {
 			cacheTime: 30000,
 		});
 		done();
-	}).timeout(5000);
+	});
 
 
 });
