@@ -1,8 +1,14 @@
 # 📚 SimpleSSR API 
 
 ### Installation
+Install from Github repository:
 ```
 npm install Kirlovon/Simple-SSR --save
+```
+
+Install from NPM repository:
+```
+npm install simple-ssr --save
 ```
 
 ## List of Features
