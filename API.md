@@ -1,8 +1,14 @@
 # 📚 SimpleSSR API 
 
 ### Installation
+Install from Github repository:
 ```
 npm install Kirlovon/Simple-SSR --save
+```
+
+Install from NPM repository:
+```
+npm install simple-ssr --save
 ```
 
 ## List of Features
@@ -31,7 +37,7 @@ This method start simpleSSR.
 - `config` **{String}** _Config for [puppeteer.launch()](https://github.com/GoogleChrome/puppeteer/blob/v1.6.1/docs/api.md#puppeteerlaunchoptions) ( Optional )_
 
 	_Default puppeteer config:_
-	```json
+	```javascript
 	{
 	  headless: true,
 	  timeout: 16000,
@@ -67,7 +73,7 @@ Render specified URL. Highly recommended to call [simpleSSR.start(config)](#simp
 	- `cacheTime` **{Number}** _Cache relevance. Set 0, to make cache infinite_
 
 	_Default rendering config:_
-	```json
+	```javascript
 	{
 	  timeout: 16000,
 	  domTarget: undefined,
@@ -183,7 +189,7 @@ simpleSSR.safe = false; // Disable safe mod
 ---------------------------------------------------------------
 ### simpleSSR.browser
 ---------------------------------------------------------------
-In this parameter there is a return from [puppeteer.launch()](https://github.com/GoogleChrome/puppeteer/blob/v1.6.2/docs/api.md#puppeteerlaunchoptions).
+In this parameter there is a return from [puppeteer.launch()](https://github.com/GoogleChrome/puppeteer/blob/v1.6.1/docs/api.md#puppeteerlaunchoptions).
 
 ##### Example
 ```javascript
@@ -203,7 +209,7 @@ const puppeteerBrowser = simpleSSR.browser;
 ### simpleSSR.blockedRequests
 ---------------------------------------------------------------
 Blocked requests list. Allows you to block loading of unnecessary resources, such as images, sounds, styles, etc. 
-More information [here](https://github.com/GoogleChrome/puppeteer/blob/v1.6.2/docs/api.md#requestresourcetype).
+More information [here](https://github.com/GoogleChrome/puppeteer/blob/v1.6.1/docs/api.md#requestresourcetype).
 
 _Default: `['stylesheet', 'image', 'media', 'font', 'manifest']`_
 

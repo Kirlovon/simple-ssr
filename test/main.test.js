@@ -3,7 +3,9 @@
 const simpleSSR = require('../lib/main');
 const assert = require('chai').assert;
 
-describe('main', () => {
+describe('main', function () {
+
+	this.timeout(60000);
 
 	beforeEach(done => {
 		simpleSSR.logs = false;
@@ -11,14 +13,14 @@ describe('main', () => {
 			await simpleSSR.start();
 			done();
 		})();
-	}, 60000);
+	});
 
 	afterEach(done => {
 		(async () => {
 			await simpleSSR.stop();
 			done();
 		})();
-	}, 60000);
+	});
 
 	it('Try to render "example.com"', done => {
 		(async () => {
@@ -27,7 +29,7 @@ describe('main', () => {
 			assert.equal(data.cached, false);
 			done();
 		})();
-	}).timeout(60000);
+	});
 
 	it('Try to render "example.com and cache it"', done => {
 		(async () => {
@@ -47,7 +49,7 @@ describe('main', () => {
 			assert.include(data.html, 'Example Domain');
 			done();
 		})();
-	}).timeout(60000);
+	});
 
 	it('Try to render "example.com" without starting SimpleSSR', done => {
 		simpleSSR.stop().then(async () => {
@@ -57,7 +59,7 @@ describe('main', () => {
 			done();
 
 		});
-	}).timeout(60000);
+	});
 
 	it('Try to start SimpleSSR twice', done => {
 		simpleSSR.start().then(() => {
@@ -68,7 +70,7 @@ describe('main', () => {
 			assert.equal(error.message, "SimpleSSR has already been launched before!");
 			done();
 		});
-	}).timeout(60000);
+	});
 
 	it('Try to render without link', done => {
 		simpleSSR.render().then(() => {
@@ -79,6 +81,6 @@ describe('main', () => {
 			assert.equal(error.message, "URL for rendering is not specified!");
 			done();
 		});
-	}).timeout(60000);
+	});
 
 });

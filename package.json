@@ -1,4 +1,3 @@
-{
 	"name": "simple-ssr",
 	"version": "1.3.0",
 	"description": "Universal server-side rendering implementation for Node.js",
@@ -34,4 +33,3 @@
 		"test": "mocha",
 		"lint": "eslint ./"
 	}
-}

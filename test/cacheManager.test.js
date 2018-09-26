@@ -5,7 +5,9 @@ const source = require('../lib/cacheManager');
 const cacheManager = new source();
 const cache = cacheManager.cache;
 
-describe('cacheManager', () => {
+describe('cacheManager', function() {
+
+	this.timeout(10000);
 
 	beforeEach(done => {
 		cache.clear();
@@ -28,7 +30,7 @@ describe('cacheManager', () => {
 		assert.equal(cachedData.html, 'HTML2');
 
 		done();
-	}).timeout(5000);
+	});
 
 	it('Check getCache() method', done => {
 
@@ -36,7 +38,7 @@ describe('cacheManager', () => {
 		assert.equal(cachedData, 'HTML');
 
 		done();
-	}).timeout(5000);
+	});
 
 	it('Check deleteCache() method', done => {
 
@@ -44,7 +46,7 @@ describe('cacheManager', () => {
 		assert.isEmpty(cache);
 
 		done();
-	}).timeout(5000);
+	});
 
 	it('Check cleanCache() method', done => {
 
@@ -52,7 +54,7 @@ describe('cacheManager', () => {
 		assert.isEmpty(cache);
 
 		done();
-	}).timeout(5000);
+	});
 
 	it('Check resetCache() method', done => {
 
@@ -60,7 +62,7 @@ describe('cacheManager', () => {
 		assert.isEmpty(cache);
 
 		done();
-	}).timeout(5000);
+	});
 
 	it('Get nonexistent cache', done => {
 
@@ -68,7 +70,7 @@ describe('cacheManager', () => {
 		assert.isNull(data);
 
 		done();
-	}).timeout(5000);
+	});
 
 	it('Make a few entries and check them', done => {
 
@@ -100,5 +102,5 @@ describe('cacheManager', () => {
 
 			done();
 		}, 10);
-	}).timeout(5000);
+	});
 });
