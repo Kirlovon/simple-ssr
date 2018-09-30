@@ -31,8 +31,6 @@ Installation from the NPM repository:
 ```
 npm install simple-ssr --save
 ```
-###### **If you use TypeScript, you must enable esModuleInterop inside tsconfig!**
-
 
 ## Usage
 
