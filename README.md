@@ -3,10 +3,10 @@
 </p>
 
 <p align="center">
-	<a href="https://github.com/Kirlovon/Simple-SSR/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Kirlovon/Simple-SSR.svg" alt="License"></a>
-	<a href="https://github.com/Kirlovon/Simple-SSR/commits/master"><img src="https://img.shields.io/github/last-commit/Kirlovon/Simple-SSR.svg" alt="Last commit"></a>
-	<a href="https://github.com/Kirlovon/Simple-SSR/blob/master/package.json"><img src="https://img.shields.io/github/package-json/v/Kirlovon/Simple-SSR.svg" alt="Package version"></a>
-	<img src="https://img.shields.io/npm/types/chalk.svg">
+	<img src="https://img.shields.io/github/license/Kirlovon/Simple-SSR.svg" alt="License">
+	<img src="https://img.shields.io/github/last-commit/Kirlovon/Simple-SSR.svg" alt="Last commit">
+	<img src="https://img.shields.io/npm/v/simple-ssr.svg" alt="NPM version">
+	<img src="https://img.shields.io/npm/types/simple-ssr.svg" alt="Types">
 </p>
 
 ## What is it?
