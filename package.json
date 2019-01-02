@@ -1,14 +1,13 @@
 {
 	"name": "simple-ssr",
-	"version": "1.4.7",
+	"version": "1.5.0",
 	"description": "Universal server-side rendering implementation for Node.js",
 	"main": "index.js",
 	"author": "Kirlovon",
 	"license": "MIT",
-	"types": "types.d.ts",
+	"types": "lib/types.d.ts",
 	"files": [
 		"lib/",
-		"types.d.ts",
 		"index.js",
 		"LICENSE"
 	],
