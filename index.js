@@ -33,6 +33,7 @@ class simpleSSR {
 	async render(url, config = {}) {
 		if (typeof url !== 'string') throw new simpleSSRError('URL must be a string');
 		if (typeof config !== 'object') throw new simpleSSRError('Config must be an object');
+		
 		if (typeof config.timeout !== 'number') config.timeout = 10000;
 		if (typeof config.domTarget !== 'string' && !Array.isArray(config.domTarget)) config.domTarget = null;
 		if (typeof config.waitUntil !== 'string') config.waitUntil = 'networkidle0';
@@ -74,7 +75,7 @@ class simpleSSR {
 		}
 
 		// Wait for selectors
-		if (typeof config.domTarget === 'string' && this.filterRequests) {
+		if (typeof config.domTarget === 'string') {
 
 			try {
 				await page.waitForSelector(config.domTarget, {
@@ -85,7 +86,7 @@ class simpleSSR {
 				throw new simpleSSRError(`Timeout waiting selector "${config.domTarget}"`, error);
 			}
 
-		} else if (Array.isArray(config.domTarget) && this.filterRequests) {
+		} else if (Array.isArray(config.domTarget)) {
 			for (const target of config.domTarget) {
 
 				if (typeof target !== 'string') throw new simpleSSRError('DOM target must be a string or array of strings');
