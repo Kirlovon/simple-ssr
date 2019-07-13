@@ -13,7 +13,7 @@
 Universal server-side rendering implementation for Node.js. Powered by [Puppeteer](https://github.com/GoogleChrome/puppeteer). <br>
 This library allows you to preload your web applications on the server side, and send rendered data to the user. <br>
 
-In simple terms, this module translates this:
+_In simple terms, this module translates this:_
 ```html
 <div id="app"></div>
 <script>
@@ -21,7 +21,7 @@ In simple terms, this module translates this:
 	element.innerHTML = 'Hello, world!';
 </script>
 ```
-To this:
+_To this:_
 ```html
 <div id="app">Hello, world!</div>
 <script>
