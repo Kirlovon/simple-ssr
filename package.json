@@ -1,14 +1,14 @@
 {
 	"name": "simple-ssr",
-	"version": "1.5.0",
+	"version": "2.0.0",
 	"description": "Universal server-side rendering implementation for Node.js",
 	"main": "index.js",
 	"author": "Kirlovon",
 	"license": "MIT",
-	"types": "lib/types.d.ts",
+	"types": "index.d.ts",
 	"files": [
-		"lib/",
 		"index.js",
+		"index.d.ts",
 		"LICENSE"
 	],
 	"keywords": [
@@ -21,16 +21,16 @@
 	"repository": "https://github.com/Kirlovon/Simple-SSR.git",
 	"homepage": "https://github.com/Kirlovon/Simple-SSR",
 	"dependencies": {
-		"chalk": "^2.4.1",
-		"puppeteer": "^1.10.0"
+		"puppeteer": "^1.18.1"
 	},
 	"devDependencies": {
+		"@types/puppeteer": "^1.12.4",
 		"chai": "^4.2.0",
 		"eslint": "^4.19.1",
 		"mocha": "^5.2.0"
 	},
 	"scripts": {
-		"test": "mocha",
-		"lint": "eslint ./"
+		"test": "mocha index.test.js",
+		"lint": "eslint ./index.js"
 	}
 }

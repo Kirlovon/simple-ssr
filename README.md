@@ -13,9 +13,23 @@
 Universal server-side rendering implementation for Node.js. Powered by [Puppeteer](https://github.com/GoogleChrome/puppeteer). <br>
 This library allows you to preload your web applications on the server side, and send rendered data to the user. <br>
 
+In simple terms, this module translates this:
+```html
+<div id="app"></div>
+<script>
+	var element = document.getElementById('app');
+	element.innerHTML = 'Hello, world!';
+</script>
+```
+To this:
+```html
+<div id="app">Hello, world!</div>
+<script>
+	var element = document.getElementById('app');
+	element.innerHTML = 'Hello, world!';
+</script>
+```
 *Note: The minimum supported Node version is **Node 7.x***<br>
-*Note 2: If you use TypeScript, you must enable **esModuleInterop** inside tsconfig*
-
 
 ## Features
 * Simplifies crawlers work with your **Single Page Applications** or **Progressive Web Apps**.<br>
@@ -31,22 +45,39 @@ Installation from the NPM repository:
 npm install simple-ssr --save
 ```
 
-## Usage
-
-### [API Documentation](https://github.com/Kirlovon/Simple-SSR/blob/master/API.md)
-
-### Example
+## Example
 ```javascript
-const express = require('express');
 const simpleSSR = require('simple-ssr');
-const app = express();
 
-app.get('/', async (req, res) => {
-	let rendered = await simpleSSR.render('http://example.com/');
-	res.send(rendered.html);
-});
+// Puppeteer instance
+simpleSSR.browser;
 
-simpleSSR.start().then(() => {
-	app.listen(3000);
-});
+// Enable requests filtering ( Default: true )
+simpleSSR.filterRequests = true;
+
+// List of useless for rendering content
+simpleSSR.blockedRequest = ['stylesheet', 'image'];
+
+(async() => {
+
+	// Put there Puppeteer config
+	await simpleSSR.start({ headless: true });
+
+	let result = await simpleSSR.render('http://example.com/', {
+		
+		 // Rendering timeout
+		timeout: 1000,
+
+		// When to consider navigation succeeded.
+		waitUntil: 'load',
+
+		 // DOM target to wait for
+		domTarget: ['body', 'h1']
+	});
+
+	console.log(result.url) // 'http://example.com/'
+	console.log(result.time) // 10000
+	console.log(result.html) // '<!DOCTYPE html>...'
+	
+})();
 ```
