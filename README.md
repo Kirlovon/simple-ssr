@@ -17,30 +17,27 @@ _In simple terms, this module translates this:_
 ```html
 <div id="app"></div>
 <script>
-	var element = document.getElementById('app');
-	element.innerHTML = 'Hello, world!';
+	document.getElementById('app').innerHTML = 'Hello, world!';
 </script>
 ```
 _To this:_
 ```html
 <div id="app">Hello, world!</div>
 <script>
-	var element = document.getElementById('app');
-	element.innerHTML = 'Hello, world!';
+	document.getElementById('app').innerHTML = 'Hello, world!';
 </script>
 ```
 *Note: The minimum supported Node version is **Node 7.x***<br>
 
 ## Features
 * Simplifies crawlers work with your **Single Page Applications** or **Progressive Web Apps**.<br>
-* Preload your web applications on the server-side. <br>
 * Allows you to cache data, optimizing the server-side rendering process. <br>
-* In some cases improves performance and loading speed of your web app. <br>
+* Preload your web applications on the server-side. <br>
 * TypeScript support.
 
 ## Installation
 
-Installation from the NPM repository:
+Installation from the [NPM](https://www.npmjs.com/package/simple-ssr) repository:
 ```
 npm install simple-ssr --save
 ```
@@ -55,7 +52,7 @@ simpleSSR.browser;
 // Enable requests filtering ( Default: true )
 simpleSSR.filterRequests = true;
 
-// List of useless for rendering content
+// List of useless for DOM rendering resources
 simpleSSR.blockedRequest = ['stylesheet', 'image'];
 
 (async() => {

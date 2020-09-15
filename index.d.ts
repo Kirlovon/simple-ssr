@@ -1,52 +1,44 @@
-import { Browser, LoadEvent, LaunchOptions } from 'puppeteer';
-
-/** TypeScript types */
-declare class simpleSSR {
-
-	/** Chromium browser from pupeteer.launch(). */
-	browser: Browser;
-
-	/** Enable requests filtering. */
-	filterRequests: boolean;
-
-	/** List of data types that are useless for rendering. */
-	blockedRequest: string[];
-
-	/** Launch Puppeteer and prepare SSR for work. */
-	start(config?: LaunchOptions): Promise<void>;
-
-	/** Render specified URL. */
-	render(url: string, config?: renderConfig): Promise<renderResult>;
-
-	/** Stop Puppeteer. */
-	stop(): Promise<void>;
+export = SimpleSSRInstance;
+declare const SimpleSSRInstance: SimpleSSR;
+/**
+ * Simple-SSR 🚩
+ * Universal server-side rendering implementation for Node.js
+ */
+declare class SimpleSSR {
+    /**
+     * Puppeteer instance
+     */
+    browser: import("puppeteer").Browser;
+    /**
+     * Enable requests filtering ( Default: true )
+     */
+    filterRequests: boolean;
+    /**
+     * List of useless for DOM rendering resources
+     */
+    blockedRequests: string[];
+    /**
+     * Start SimpleSSR
+     * @param {puppeteer.LaunchOptions} [config={ headless: true, timeout: 10000 }] Config for Puppeteer instance.
+     */
+    start(config?: import("puppeteer").LaunchOptions): Promise<void>;
+    /**
+     * Render page from specified URL.
+     * @param {string} url Page URL.
+     * @param {{ timeout: number, domTarget: string|string[]|null, waitUntil: string }} [config={ timeout: 10000, domTarget: null, waitUntil: 'networkidle0' }] Rendering config.
+     * @returns Rendering result.
+     */
+    render(url: string, config?: {
+        timeout: number;
+        domTarget: string | string[] | null;
+        waitUntil: string;
+    }): Promise<{
+        url: string;
+        time: number;
+        html: string;
+    }>;
+    /**
+     * Stop SimpleSSR
+     */
+    stop(): Promise<void>;
 }
-
-/** Rendering config. */
-declare interface renderConfig {
-
-	/** Rendering timeout. */
-	timeout?: number;
-
-	/** DOM targets that will be expected to appear during the rendering process. */
-	domTarget?: string | string[];
-
-	/** When to consider navigation succeeded. */
-	waitUntil?: LoadEvent;
-}
-
-/** Rendering result. */
-declare interface renderResult {
-
-	/** Page URL. */
-	url: string;
-
-	/** Rendering time. */
-	time: number;
-
-	/** Rendered page */
-	html: string;
-}
-
-declare const instance: simpleSSR;
-export default instance;
